@@ -1,0 +1,55 @@
+procedure_code,expected_specialty,category
+G0438,Family Medicine,Family Medicine
+G0439,Family Medicine,Family Medicine
+99395,Family Medicine,Family Medicine
+99396,Family Medicine,Family Medicine
+93000,Cardiology,Cardiology
+93306,Cardiology,Cardiology
+93452,Cardiology,Cardiology
+93458,Cardiology,Cardiology
+27447,Orthopedics,Orthopedics
+27130,Orthopedics,Orthopedics
+29881,Orthopedics,Orthopedics
+20610,Orthopedics,Orthopedics
+11102,Dermatology,Dermatology
+17000,Dermatology,Dermatology
+96910,Dermatology,Dermatology
+17110,Dermatology,Dermatology
+70553,Radiology,Radiology
+74177,Radiology,Radiology
+71260,Radiology,Radiology
+72148,Radiology,Radiology
+77067,Radiology,Radiology
+47562,General Surgery,General Surgery
+49505,General Surgery,General Surgery
+43239,General Surgery,General Surgery
+44120,General Surgery,General Surgery
+99395,Internal Medicine,Internal Medicine
+99396,Internal Medicine,Internal Medicine
+G0438,Internal Medicine,Internal Medicine
+95819,Neurology,Neurology
+95909,Neurology,Neurology
+95816,Neurology,Neurology
+96413,Oncology,Oncology
+96415,Oncology,Oncology
+96417,Oncology,Oncology
+99381,Pediatrics,Pediatrics
+99391,Pediatrics,Pediatrics
+99382,Pediatrics,Pediatrics
+90834,Psychiatry,Psychiatry
+90837,Psychiatry,Psychiatry
+90847,Psychiatry,Psychiatry
+99281,Emergency Medicine,Emergency Medicine
+99282,Emergency Medicine,Emergency Medicine
+99283,Emergency Medicine,Emergency Medicine
+99284,Emergency Medicine,Emergency Medicine
+99285,Emergency Medicine,Emergency Medicine
+52000,Urology,Urology
+52601,Urology,Urology
+55700,Urology,Urology
+92004,Ophthalmology,Ophthalmology
+92012,Ophthalmology,Ophthalmology
+66984,Ophthalmology,Ophthalmology
+43239,Gastroenterology,Gastroenterology
+45378,Gastroenterology,Gastroenterology
+45380,Gastroenterology,Gastroenterology

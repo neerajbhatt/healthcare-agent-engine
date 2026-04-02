@@ -1,0 +1,83 @@
+"""Snowflake connection manager with query execution."""
+
+from __future__ import annotations
+
+import asyncio
+from contextlib import asynccontextmanager
+from typing import Any
+
+import pandas as pd
+
+from config.settings import settings
+from utils.logging import get_logger
+
+logger = get_logger(__name__)
+
+
+class SnowflakeClient:
+    """Manages Snowflake connections and executes queries."""
+
+    def __init__(self):
+        self._connection = None
+
+    def _get_connection(self):
+        """Lazy-initialize Snowflake connection."""
+        if self._connection is None or self._connection.is_closed():
+            import snowflake.connector
+
+            self._connection = snowflake.connector.connect(
+                account=settings.snowflake_account,
+                user=settings.snowflake_user,
+                password=settings.snowflake_password,
+                warehouse=settings.snowflake_warehouse,
+                database=settings.snowflake_database,
+                schema=settings.snowflake_schema,
+            )
+            logger.info("snowflake_connected", account=settings.snowflake_account)
+        return self._connection
+
+    async def execute_query(
+        self, sql: str, params: dict[str, Any] | None = None
+    ) -> pd.DataFrame:
+        """Execute a SQL query and return results as a DataFrame.
+
+        Runs the blocking Snowflake call in a thread pool so it doesn't
+        block the async event loop.
+        """
+        logger.info("executing_query", sql_preview=sql[:200])
+
+        def _run():
+            conn = self._get_connection()
+            cursor = conn.cursor()
+            try:
+                if params:
+                    cursor.execute(sql, params)
+                else:
+                    cursor.execute(sql)
+                columns = [desc[0] for desc in cursor.description] if cursor.description else []
+                rows = cursor.fetchall()
+                return pd.DataFrame(rows, columns=columns)
+            finally:
+                cursor.close()
+
+        return await asyncio.to_thread(_run)
+
+    async def execute_query_safe(
+        self, sql: str, params: dict[str, Any] | None = None
+    ) -> tuple[pd.DataFrame | None, str | None]:
+        """Execute a query, returning (df, None) on success or (None, error) on failure."""
+        try:
+            df = await self.execute_query(sql, params)
+            return df, None
+        except Exception as e:
+            logger.error("query_failed", error=str(e), sql_preview=sql[:200])
+            return None, str(e)
+
+    def close(self):
+        if self._connection and not self._connection.is_closed():
+            self._connection.close()
+            logger.info("snowflake_disconnected")
+
+
+# Module-level singleton
+snowflake_client = SnowflakeClient()

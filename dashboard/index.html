@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthcare Investigation Engine</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e17;
+    --surface: #111827;
+    --surface-2: #1a2332;
+    --border: #1e293b;
+    --border-hover: #334155;
+    --text: #e2e8f0;
+    --text-muted: #64748b;
+    --text-dim: #475569;
+    --accent: #3b82f6;
+    --accent-glow: rgba(59,130,246,.15);
+    --green: #22c55e;
+    --green-bg: rgba(34,197,94,.1);
+    --red: #ef4444;
+    --red-bg: rgba(239,68,68,.1);
+    --orange: #f59e0b;
+    --orange-bg: rgba(245,158,11,.1);
+    --purple: #a855f7;
+    --purple-bg: rgba(168,85,247,.1);
+    --cyan: #06b6d4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-icon {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .header h1 {
+    font-size: 18px; font-weight: 600; letter-spacing: -0.3px;
+  }
+  .header h1 span { color: var(--text-muted); font-weight: 400; }
+  .header-status {
+    margin-left: auto;
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--text-muted);
+  }
+  .status-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ── Layout ── */
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px;
+  }
+
+  /* ── Query Input ── */
+  .query-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 28px;
+  }
+  .query-label {
+    font-size: 13px; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 12px; font-weight: 600;
+  }
+  .query-input-wrap {
+    display: flex; gap: 12px;
+  }
+  .query-input {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 18px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    resize: none;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .query-input:focus { border-color: var(--accent); }
+  .query-input::placeholder { color: var(--text-dim); }
+  .btn-investigate {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 28px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .btn-investigate:hover { background: #2563eb; transform: translateY(-1px); }
+  .btn-investigate:disabled {
+    opacity: 0.5; cursor: not-allowed; transform: none;
+  }
+
+  /* ── Examples ── */
+  .examples {
+    display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap;
+  }
+  .example-chip {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .example-chip:hover {
+    border-color: var(--accent);
+    color: var(--text);
+    background: var(--accent-glow);
+  }
+
+  /* ── Progress ── */
+  .progress-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 28px;
+    display: none;
+  }
+  .progress-section.active { display: block; }
+  .progress-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .progress-title { font-size: 16px; font-weight: 600; }
+  .progress-timer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px; color: var(--cyan);
+  }
+
+  .agent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+  }
+  .agent-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.3s;
+  }
+  .agent-card.running { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
+  .agent-card.success { border-color: var(--green); }
+  .agent-card.failed { border-color: var(--red); }
+  .agent-card-header {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+  }
+  .agent-status-icon {
+    width: 28px; height: 28px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .agent-status-icon.waiting { background: var(--surface-2); }
+  .agent-status-icon.running { background: var(--accent-glow); animation: pulse 1s infinite; }
+  .agent-status-icon.success { background: var(--green-bg); }
+  .agent-status-icon.failed { background: var(--red-bg); }
+  .agent-card-name { font-size: 13px; font-weight: 600; }
+  .agent-card-meta {
+    font-size: 11px; color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── Results ── */
+  .results-section {
+    display: none;
+  }
+  .results-section.active { display: block; }
+
+  .report-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+  .report-card h2 {
+    font-size: 16px; font-weight: 600; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .report-card h2 .icon {
+    width: 28px; height: 28px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+
+  /* Stats row */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .stat-label {
+    font-size: 12px; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 0.8px;
+    margin-bottom: 8px;
+  }
+  .stat-value {
+    font-size: 28px; font-weight: 700; letter-spacing: -1px;
+  }
+  .stat-value.risk-critical { color: var(--red); }
+  .stat-value.risk-high { color: var(--orange); }
+  .stat-value.risk-medium { color: var(--orange); }
+  .stat-value.risk-low { color: var(--green); }
+
+  /* Findings list */
+  .finding-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 10px;
+    transition: border-color 0.2s;
+  }
+  .finding-item:hover { border-color: var(--border-hover); }
+  .finding-header {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+  }
+  .severity-badge {
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .severity-critical { background: var(--red-bg); color: var(--red); }
+  .severity-high { background: var(--orange-bg); color: var(--orange); }
+  .severity-medium { background: var(--orange-bg); color: var(--orange); }
+  .severity-low { background: var(--green-bg); color: var(--green); }
+  .severity-info { background: var(--purple-bg); color: var(--purple); }
+  .finding-title { font-weight: 600; font-size: 14px; }
+  .finding-explanation {
+    font-size: 13px; color: var(--text-muted); line-height: 1.6;
+  }
+  .finding-agent {
+    margin-top: 8px;
+    font-size: 11px; color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Executive summary */
+  .exec-summary {
+    font-size: 14px; line-height: 1.8; color: var(--text-muted);
+  }
+
+  /* Actions */
+  .action-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .action-priority {
+    background: var(--accent-glow);
+    color: var(--accent);
+    font-size: 12px; font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  .action-text { font-size: 13px; line-height: 1.5; }
+  .action-assign {
+    font-size: 11px; color: var(--text-dim); margin-top: 4px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── Spinner ── */
+  .spinner {
+    width: 16px; height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .container { padding: 16px; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .query-input-wrap { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-icon">🔬</div>
+  <h1>Healthcare Investigation Engine <span>/ Multi-Agent AI</span></h1>
+  <div class="header-status">
+    <div class="status-dot"></div>
+    <span>System Online</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Query Input -->
+  <div class="query-section">
+    <div class="query-label">Investigation Query</div>
+    <div class="query-input-wrap">
+      <textarea class="query-input" id="queryInput" rows="2"
+        placeholder="e.g. Investigate NPI 1234567890 for unusually high billing volume in Q4 2025..."></textarea>
+      <button class="btn-investigate" id="btnInvestigate" onclick="startInvestigation()">
+        Investigate
+      </button>
+    </div>
+    <div class="examples">
+      <div class="example-chip" onclick="setQuery('Investigate provider NPI 1234567890 — flagged for high billing volume in Q4 2025')">Provider billing anomaly</div>
+      <div class="example-chip" onclick="setQuery('Find suspicious claim patterns for orthopedic providers in Texas')">Specialty fraud scan</div>
+      <div class="example-chip" onclick="setQuery('Analyze member doctor-shopping patterns in the Northeast region')">Member abuse detection</div>
+      <div class="example-chip" onclick="setQuery('Review eligibility gaps and retroactive additions in Florida Medicaid')">Eligibility anomalies</div>
+    </div>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-section" id="progressSection">
+    <div class="progress-header">
+      <div class="progress-title"><span class="spinner"></span>&nbsp; Investigation in Progress</div>
+      <div class="progress-timer" id="progressTimer">0.0s</div>
+    </div>
+    <div class="agent-grid" id="agentGrid"></div>
+  </div>
+
+  <!-- Results -->
+  <div class="results-section" id="resultsSection">
+
+    <!-- Stats Row -->
+    <div class="stats-row" id="statsRow"></div>
+
+    <!-- Executive Summary -->
+    <div class="report-card" id="summaryCard">
+      <h2><span class="icon" style="background:var(--purple-bg)">📋</span> Executive Summary</h2>
+      <div class="exec-summary" id="execSummary"></div>
+    </div>
+
+    <!-- Key Findings -->
+    <div class="report-card" id="findingsCard">
+      <h2><span class="icon" style="background:var(--red-bg)">🔍</span> Key Findings</h2>
+      <div id="findingsList"></div>
+    </div>
+
+    <!-- Recommended Actions -->
+    <div class="report-card" id="actionsCard">
+      <h2><span class="icon" style="background:var(--green-bg)">✅</span> Recommended Actions</h2>
+      <div id="actionsList"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const AGENTS = {
+  claims: { name: 'Claims Intelligence', wave: 1 },
+  provider: { name: 'Provider Behavior', wave: 1 },
+  member: { name: 'Member Risk', wave: 1 },
+  eligibility: { name: 'Eligibility & Coverage', wave: 1 },
+  temporal: { name: 'Temporal Analysis', wave: 2 },
+  fraud_synthesis: { name: 'Fraud Synthesis', wave: 3 },
+  network: { name: 'Network Analysis', wave: 3 },
+  cost_impact: { name: 'Cost Impact', wave: 3 },
+  report: { name: 'Report Compiler', wave: 4 },
+};
+
+let timerInterval = null;
+let startTime = null;
+
+function setQuery(q) {
+  document.getElementById('queryInput').value = q;
+}
+
+function startTimer() {
+  startTime = Date.now();
+  timerInterval = setInterval(() => {
+    const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+    document.getElementById('progressTimer').textContent = elapsed + 's';
+  }, 100);
+}
+
+function stopTimer() {
+  if (timerInterval) clearInterval(timerInterval);
+}
+
+function renderAgentGrid(statuses) {
+  const grid = document.getElementById('agentGrid');
+  grid.innerHTML = '';
+  for (const [id, info] of Object.entries(AGENTS)) {
+    const st = statuses[id] || 'waiting';
+    const card = document.createElement('div');
+    card.className = `agent-card ${st}`;
+    const icons = { waiting: '⏳', running: '⚡', success: '✅', failed: '❌', partial: '⚠️' };
+    card.innerHTML = `
+      <div class="agent-card-header">
+        <div class="agent-status-icon ${st}">${icons[st] || '⏳'}</div>
+        <div>
+          <div class="agent-card-name">${info.name}</div>
+          <div class="agent-card-meta">Wave ${info.wave} · ${st}</div>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  }
+}
+
+async function startInvestigation() {
+  const query = document.getElementById('queryInput').value.trim();
+  if (!query) return;
+
+  const btn = document.getElementById('btnInvestigate');
+  btn.disabled = true;
+  btn.textContent = 'Running...';
+
+  const progressSection = document.getElementById('progressSection');
+  const resultsSection = document.getElementById('resultsSection');
+  progressSection.classList.add('active');
+  resultsSection.classList.remove('active');
+
+  // Init agent grid
+  const statuses = {};
+  Object.keys(AGENTS).forEach(id => statuses[id] = 'waiting');
+  renderAgentGrid(statuses);
+  startTimer();
+
+  // Try WebSocket first, fall back to REST
+  const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+  const wsUrl = `${wsProtocol}//${location.host}/ws/investigate`;
+
+  try {
+    const ws = new WebSocket(wsUrl);
+    let received = false;
+
+    ws.onopen = () => {
+      ws.send(JSON.stringify({ query }));
+    };
+
+    ws.onmessage = (event) => {
+      const msg = JSON.parse(event.data);
+
+      if (msg.event === 'agent_completed') {
+        const d = msg.data;
+        statuses[d.agent_id] = d.status;
+        renderAgentGrid(statuses);
+      }
+
+      if (msg.event === 'investigation_complete') {
+        // Safety net: stop timer as soon as engine signals completion
+        stopTimer();
+      }
+
+      if (msg.event === 'investigation_result') {
+        received = true;
+        stopTimer();
+        progressSection.classList.remove('active');
+        renderResults(msg.data);
+        btn.disabled = false;
+        btn.textContent = 'Investigate';
+        ws.close();
+      }
+
+      if (msg.event === 'investigation_failed') {
+        received = true;
+        stopTimer();
+        progressSection.classList.remove('active');
+        alert('Investigation failed: ' + (msg.data?.error || 'Unknown error'));
+        btn.disabled = false;
+        btn.textContent = 'Investigate';
+        ws.close();
+      }
+    };
+
+    ws.onerror = async () => {
+      if (!received) {
+        // Fall back to REST
+        ws.close();
+        await restInvestigate(query, btn);
+      }
+    };
+
+    // Timeout fallback
+    setTimeout(() => {
+      if (!received && ws.readyState === WebSocket.OPEN) {
+        ws.close();
+        restInvestigate(query, btn);
+      }
+    }, 300000);
+
+  } catch (e) {
+    await restInvestigate(query, btn);
+  }
+}
+
+async function restInvestigate(query, btn) {
+  try {
+    const resp = await fetch('/api/investigate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query }),
+    });
+    const data = await resp.json();
+
+    if (data.investigation_id) {
+      const detail = await fetch(`/api/investigations/${data.investigation_id}`);
+      const result = await detail.json();
+      stopTimer();
+      document.getElementById('progressSection').classList.remove('active');
+      renderResults(result);
+    }
+  } catch (e) {
+    stopTimer();
+    document.getElementById('progressSection').classList.remove('active');
+    alert('Error: ' + e.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Investigate';
+  }
+}
+
+function renderResults(data) {
+  const resultsSection = document.getElementById('resultsSection');
+  resultsSection.classList.add('active');
+
+  const report = data.report || {};
+  const agentResults = data.agent_results || {};
+
+  // Count findings
+  let totalFindings = 0;
+  let criticalCount = 0;
+  Object.values(agentResults).forEach(ar => {
+    (ar.findings || []).forEach(f => {
+      totalFindings++;
+      if (f.severity === 'critical') criticalCount++;
+    });
+  });
+
+  // Stats
+  const statsRow = document.getElementById('statsRow');
+  const riskLevel = report.risk_level || 'medium';
+  const riskScore = report.composite_risk_score || 0;
+  const financial = report.financial_summary || {};
+
+  statsRow.innerHTML = `
+    <div class="stat-card">
+      <div class="stat-label">Risk Level</div>
+      <div class="stat-value risk-${riskLevel}">${riskLevel.toUpperCase()}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Risk Score</div>
+      <div class="stat-value">${(riskScore * 100).toFixed(0)}%</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Total Findings</div>
+      <div class="stat-value">${totalFindings}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Est. Impact</div>
+      <div class="stat-value">$${formatMoney(financial.total_estimated_overpayment || 0)}</div>
+    </div>
+  `;
+
+  // Executive Summary
+  document.getElementById('execSummary').textContent =
+    report.executive_summary || 'No executive summary available.';
+
+  // Key Findings
+  const findingsList = document.getElementById('findingsList');
+  findingsList.innerHTML = '';
+  const allFindings = [];
+
+  // Prefer report key_findings, fall back to agent findings
+  if (report.key_findings && report.key_findings.length) {
+    report.key_findings.forEach(f => {
+      allFindings.push({
+        severity: f.severity || 'info',
+        title: f.title,
+        explanation: f.description || '',
+        agent: (f.supporting_agents || []).join(', '),
+        impact: f.estimated_impact_usd,
+      });
+    });
+  } else {
+    Object.entries(agentResults).forEach(([agentId, ar]) => {
+      (ar.findings || []).forEach(f => {
+        allFindings.push({
+          severity: f.severity,
+          title: f.title,
+          explanation: f.explanation,
+          agent: agentId,
+        });
+      });
+    });
+  }
+
+  allFindings.forEach(f => {
+    const el = document.createElement('div');
+    el.className = 'finding-item';
+    el.innerHTML = `
+      <div class="finding-header">
+        <span class="severity-badge severity-${f.severity}">${f.severity}</span>
+        <span class="finding-title">${escHtml(f.title)}</span>
+      </div>
+      <div class="finding-explanation">${escHtml(f.explanation)}</div>
+      ${f.agent ? `<div class="finding-agent">Source: ${escHtml(f.agent)}${f.impact ? ' · Impact: $' + formatMoney(f.impact) : ''}</div>` : ''}
+    `;
+    findingsList.appendChild(el);
+  });
+
+  // Recommended Actions
+  const actionsList = document.getElementById('actionsList');
+  actionsList.innerHTML = '';
+  const actions = report.recommended_actions || [];
+  if (actions.length) {
+    actions.forEach(a => {
+      const el = document.createElement('div');
+      el.className = 'action-item';
+      el.innerHTML = `
+        <div class="action-priority">P${a.priority || '?'}</div>
+        <div>
+          <div class="action-text">${escHtml(a.action)}</div>
+          <div class="action-assign">${escHtml(a.assigned_to || '')} · ${escHtml(a.rationale || '')}</div>
+        </div>
+      `;
+      actionsList.appendChild(el);
+    });
+  } else {
+    actionsList.innerHTML = '<div style="color:var(--text-muted);font-size:13px;">No specific actions generated.</div>';
+  }
+
+  // Update agent grid with final statuses
+  const statuses = {};
+  Object.entries(agentResults).forEach(([id, ar]) => {
+    statuses[id] = ar.status || 'success';
+  });
+  renderAgentGrid(statuses);
+}
+
+function formatMoney(n) {
+  if (!n || n === 0) return '0';
+  if (n >= 1e6) return (n / 1e6).toFixed(1) + 'M';
+  if (n >= 1e3) return (n / 1e3).toFixed(0) + 'K';
+  return n.toLocaleString();
+}
+
+function escHtml(s) {
+  if (!s) return '';
+  const div = document.createElement('div');
+  div.textContent = s;
+  return div.innerHTML;
+}
+
+// Init
+renderAgentGrid({});
+</script>
+
+</body>
+</html>

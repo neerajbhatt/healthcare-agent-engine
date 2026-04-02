@@ -1,0 +1,201 @@
+npi,first_name,last_name,specialty,practice_state,practice_city,practice_zip,tax_id,practice_type,enrollment_date,is_active
+1043321819,Robert,Johnson,Oncology,FL,Miami,38657,39-9478454,facility,2018-04-19,True
+1386379402,Margaret,Perez,Emergency Medicine,NC,Raleigh,30379,37-6647119,solo,2019-01-15,True
+1155940781,Matthew,Garcia,Gastroenterology,OH,Cincinnati,48427,90-7067228,facility,2020-02-27,True
+1034131647,Nancy,Hernandez,General Surgery,FL,Tampa,56566,36-5479144,solo,2019-12-02,True
+1327648350,Robert,Lee,Orthopedics,NC,Raleigh,45093,18-4539704,facility,2021-07-12,True
+1767242388,Emily,Ramirez,Dermatology,NY,Rochester,57447,38-3320821,facility,2023-07-15,True
+1012269166,Sandra,King,Radiology,FL,Tampa,82512,11-2921859,facility,2020-12-28,True
+1146270482,Michael,Martin,Psychiatry,IL,Naperville,76540,87-4337174,solo,2022-03-12,True
+1880957015,Karen,Thomas,Gastroenterology,CA,Los Angeles,41571,82-2321324,solo,2023-06-14,True
+1822782489,Susan,Wright,Oncology,FL,Orlando,50857,61-7264956,group,2023-10-21,True
+1133150983,Joseph,Smith,Radiology,GA,Atlanta,92719,17-4841005,solo,2018-05-09,True
+1183473829,Donald,Thomas,Radiology,IL,Springfield,63354,34-2582524,solo,2022-11-01,True
+1667010651,Richard,Gonzalez,Orthopedics,IL,Naperville,68800,27-8077999,solo,2021-02-14,True
+1317810801,Jessica,Hernandez,Gastroenterology,GA,Savannah,73653,71-4586084,group,2018-08-29,True
+1606474687,Richard,Jackson,Cardiology,CA,San Francisco,17665,84-2022698,group,2018-08-23,True
+1978820812,Joshua,Jones,Internal Medicine,TX,Dallas,62923,25-5130808,facility,2018-06-12,True
+1169985435,Thomas,Sanchez,Orthopedics,MI,Detroit,98039,92-6033115,group,2021-07-19,True
+1079911838,David,Thompson,Dermatology,FL,Miami,42018,57-5781295,solo,2022-11-30,True
+1498084124,Michael,Scott,Internal Medicine,NC,Charlotte,45697,46-4533779,group,2020-04-13,True
+1874016400,David,Taylor,Neurology,PA,Philadelphia,67912,80-8175395,facility,2018-02-09,True
+1128059826,Robert,Martin,Cardiology,FL,Tampa,15229,55-4524499,solo,2019-02-26,True
+1869232260,Lisa,Clark,Cardiology,IL,Naperville,42527,44-3670896,solo,2022-04-16,True
+1733754330,Richard,Sanchez,General Surgery,TX,Austin,46517,18-5682940,group,2023-09-18,True
+1850142940,Joshua,Ramirez,Internal Medicine,OH,Cleveland,51114,65-9580255,solo,2022-04-27,True
+1340608835,John,Perez,Oncology,MI,Ann Arbor,51145,94-3090865,group,2023-09-09,True
+1656482366,Barbara,Flores,General Surgery,PA,Harrisburg,49446,61-1006810,group,2021-03-21,True
+1699577738,William,Garcia,Pediatrics,NY,Albany,77561,94-6623525,solo,2020-08-20,True
+1332003791,Anthony,Torres,Pediatrics,PA,Philadelphia,60328,73-7705062,solo,2019-08-28,True
+1163287083,Linda,Robinson,Gastroenterology,TX,Dallas,70901,95-9910914,facility,2021-07-23,True
+1986872774,Jessica,Moore,Urology,GA,Augusta,73517,90-5013879,group,2022-12-07,True
+1434558122,Matthew,Martinez,Orthopedics,FL,Orlando,18418,63-7838382,group,2024-02-01,True
+1603669096,James,Thompson,Pediatrics,GA,Savannah,61116,63-4700025,group,2020-06-17,True
+1670656272,Andrew,Johnson,Radiology,PA,Pittsburgh,87580,82-1454696,solo,2022-10-22,True
+1720465375,Matthew,Moore,Neurology,CA,Sacramento,43065,20-8890439,solo,2024-01-19,True
+1531003309,Jessica,Rodriguez,Cardiology,TX,San Antonio,97747,24-4656838,group,2020-11-15,True
+1299124190,Karen,Torres,Gastroenterology,IL,Naperville,59192,60-4327421,solo,2020-09-21,True
+1491905865,Steven,Perez,Internal Medicine,FL,Miami,65057,72-2770648,group,2022-01-23,True
+1262849877,Emily,Moore,Oncology,GA,Savannah,42177,21-5679639,group,2020-09-25,True
+1996507527,Daniel,Taylor,Orthopedics,GA,Savannah,46655,86-5635017,facility,2018-02-11,True
+1313678377,Mary,Garcia,Pediatrics,NC,Raleigh,39045,61-5081983,group,2022-02-20,True
+1885685574,Thomas,Anderson,Dermatology,GA,Atlanta,35242,50-3005795,facility,2020-01-29,True
+1374989413,Joseph,White,Dermatology,NY,Buffalo,49618,11-9961299,solo,2021-01-28,True
+1084271094,Donald,Lewis,Pediatrics,TX,Austin,34164,16-5235884,group,2019-04-13,True
+1671902294,Jessica,Davis,Internal Medicine,FL,Jacksonville,89471,86-4786401,facility,2022-04-08,True
+1749649909,Michael,Wilson,Emergency Medicine,GA,Augusta,37659,43-2362099,solo,2020-09-09,True
+1812067974,Joseph,Jackson,Family Medicine,CA,San Diego,69510,19-4916201,group,2020-03-21,True
+1183242102,Karen,Hill,Urology,OH,Cincinnati,84607,46-8367772,solo,2023-04-04,True
+1648877190,Margaret,Lee,Gastroenterology,PA,Harrisburg,42816,13-2532210,solo,2018-03-26,True
+1902787429,Ashley,Garcia,Oncology,PA,Pittsburgh,55607,62-6591986,group,2019-03-05,True
+1567468071,Thomas,Lee,Neurology,CA,Los Angeles,62976,75-1019311,facility,2023-03-08,True
+1038597703,Kimberly,Rodriguez,Dermatology,OH,Cleveland,67424,99-9132114,solo,2018-04-29,True
+1324808613,Linda,Robinson,Ophthalmology,MI,Detroit,94896,29-9361353,group,2023-09-16,True
+1677378263,Joshua,Allen,Gastroenterology,PA,Harrisburg,27892,18-5634662,group,2021-10-24,True
+1404499727,Donald,Thompson,Psychiatry,NC,Raleigh,82340,79-7328534,group,2021-08-11,True
+1396360576,Elizabeth,Young,Oncology,NY,New York,26547,74-6569946,solo,2022-12-09,True
+1870262174,Donna,Sanchez,Neurology,FL,Miami,53065,96-9952696,group,2021-07-21,True
+1809134316,Michael,Lewis,Internal Medicine,GA,Atlanta,49251,13-1771600,group,2018-08-18,True
+1556238692,Barbara,Garcia,Cardiology,PA,Harrisburg,60140,89-5040453,group,2019-08-10,True
+1747407482,Mark,Thompson,Internal Medicine,NY,Albany,93746,64-5195951,group,2021-05-22,True
+1671369594,Christopher,Johnson,Emergency Medicine,NY,Rochester,45976,11-1822825,facility,2023-07-28,True
+1395339421,Robert,Martin,Gastroenterology,PA,Pittsburgh,14373,84-7121355,solo,2019-01-05,True
+1562328588,Sarah,Hernandez,Gastroenterology,PA,Pittsburgh,73156,47-6682698,solo,2023-04-03,True
+1236851604,Linda,Robinson,Psychiatry,FL,Tampa,98188,96-5398338,facility,2022-04-10,True
+1137098593,John,Robinson,General Surgery,IL,Naperville,49608,93-7850067,solo,2019-07-27,True
+1047113826,Nancy,Wright,Pediatrics,TX,San Antonio,86983,29-7960607,solo,2023-06-28,True
+1640537735,Nancy,Wright,Internal Medicine,MI,Ann Arbor,57012,17-7679674,group,2020-02-17,True
+1713900532,Paul,Wilson,Urology,FL,Miami,82641,36-4623062,solo,2021-09-07,True
+1904228421,Mary,Rodriguez,General Surgery,CA,Los Angeles,56955,40-6431983,solo,2019-12-15,True
+1026811775,Emily,Miller,Psychiatry,PA,Pittsburgh,76039,38-1727544,facility,2021-05-20,True
+1007661771,Jennifer,Lee,Gastroenterology,GA,Augusta,29442,18-3117143,group,2024-02-25,True
+1698478961,Linda,Scott,Urology,IL,Naperville,38183,65-8575834,solo,2022-08-22,True
+1766156545,Donald,Jones,Cardiology,IL,Chicago,21188,21-8245685,solo,2022-03-07,True
+1809885165,Margaret,Brown,Ophthalmology,CA,San Diego,88696,49-6899644,solo,2023-09-10,True
+1273158514,Joseph,Ramirez,Radiology,NY,New York,89822,94-5487028,solo,2020-01-09,True
+1455022961,Mary,Garcia,Cardiology,PA,Harrisburg,79531,37-7311494,group,2023-02-02,True
+1254599102,Donna,Brown,Cardiology,IL,Naperville,20693,44-8434202,group,2023-06-13,True
+1764381561,Emily,Young,Dermatology,MI,Ann Arbor,97442,49-1761976,solo,2022-06-07,True
+1003432445,James,Young,Internal Medicine,MI,Ann Arbor,66446,32-3167376,group,2023-12-22,True
+1885160607,John,Lee,Gastroenterology,NY,Rochester,85156,61-8007741,group,2019-04-17,True
+1052975161,Margaret,Nguyen,Orthopedics,OH,Cleveland,78676,20-7639863,group,2021-10-22,True
+1521818835,Elizabeth,Thomas,Neurology,NY,New York,29194,42-4309671,solo,2019-09-19,True
+1277997995,Charles,Martinez,Ophthalmology,FL,Jacksonville,18950,70-8419020,group,2021-01-30,True
+1058147700,Christopher,Jones,Neurology,MI,Ann Arbor,21835,88-9507186,group,2023-03-11,True
+1807935978,Patricia,Lewis,Cardiology,MI,Detroit,55015,20-9464927,solo,2018-06-10,True
+1778892554,Anthony,Perez,Oncology,NY,New York,92691,92-6614484,solo,2021-09-12,True
+1864492519,Elizabeth,Thompson,General Surgery,FL,Tampa,95990,99-7575963,solo,2018-12-14,True
+1865281685,Nancy,Martin,Family Medicine,PA,Philadelphia,38074,53-9158272,solo,2020-07-16,True
+1214188805,Donna,Rodriguez,Gastroenterology,CA,Sacramento,30218,30-4034091,facility,2019-11-10,True
+1065379473,Jessica,Martin,Psychiatry,GA,Savannah,35430,57-8391997,group,2021-02-28,True
+1886239240,Donald,White,General Surgery,OH,Cincinnati,23446,76-3091745,group,2018-12-10,True
+1478261375,Mary,Clark,Gastroenterology,CA,Los Angeles,61964,74-7274032,solo,2022-05-01,True
+1530515220,Donald,Rodriguez,Dermatology,FL,Jacksonville,68799,88-1088100,solo,2018-03-19,True
+1328986143,Linda,Brown,Dermatology,PA,Philadelphia,65027,91-8669093,solo,2019-03-31,True
+1980893246,Donna,Thompson,Family Medicine,GA,Atlanta,84798,63-4142605,solo,2023-11-15,True
+1188888067,Matthew,White,Family Medicine,IL,Springfield,12128,55-2133461,group,2020-09-14,True
+1952058527,Donald,Lopez,Emergency Medicine,FL,Orlando,18270,68-1620485,group,2020-04-05,True
+1305486874,Richard,Jackson,Family Medicine,TX,Austin,16265,93-6568772,group,2019-05-25,True
+1667652775,Dorothy,Moore,Gastroenterology,IL,Chicago,65640,20-8224389,facility,2020-01-10,True
+1451154479,Margaret,Hernandez,Emergency Medicine,NC,Durham,68183,54-8501590,solo,2021-12-15,True
+1640165820,Joshua,Lewis,Cardiology,MI,Detroit,26545,18-4959345,group,2022-01-23,True
+1909275571,David,King,Radiology,OH,Cleveland,62171,50-5675638,solo,2019-04-10,True
+1278681447,Donna,Jackson,Orthopedics,TX,San Antonio,36237,25-3277144,solo,2023-01-26,True
+1715518844,William,Lopez,Ophthalmology,CA,San Diego,76683,38-3036124,solo,2019-07-23,True
+1705895782,Jennifer,Jones,Radiology,NY,Albany,62187,71-9819709,group,2022-08-05,True
+1125177852,Kimberly,Nguyen,Gastroenterology,MI,Detroit,26912,65-9436654,solo,2019-05-24,True
+1242253584,Jennifer,Taylor,Ophthalmology,NC,Charlotte,93238,80-5604524,solo,2021-05-25,True
+1818299229,Joshua,Perez,Emergency Medicine,MI,Ann Arbor,15399,13-2362693,solo,2020-12-20,True
+1969078447,Betty,Martin,Orthopedics,NY,Rochester,19564,98-2005173,solo,2022-12-06,True
+1773592555,David,White,Oncology,OH,Cincinnati,83616,23-6353876,solo,2023-03-26,True
+1473210469,Jessica,Hernandez,Oncology,FL,Tampa,85718,50-4184887,solo,2023-08-03,True
+1774701687,Susan,Nguyen,Orthopedics,NC,Raleigh,16377,16-5720376,group,2023-04-12,True
+1801624565,Betty,Brown,Family Medicine,PA,Harrisburg,83638,34-7082139,facility,2021-03-28,True
+1687849912,Betty,White,Internal Medicine,FL,Tampa,83116,56-3420404,solo,2023-09-17,True
+1800025787,Joshua,Allen,Cardiology,OH,Columbus,52987,88-6344047,solo,2022-05-29,True
+1495888794,Mary,White,Pediatrics,MI,Grand Rapids,98317,24-7988386,facility,2021-06-14,True
+1974993097,Dorothy,Flores,Cardiology,TX,San Antonio,29369,97-5063384,solo,2019-03-27,True
+1075626368,Donna,Walker,Urology,NY,New York,28098,76-4478616,facility,2021-08-24,True
+1865278585,Thomas,Flores,General Surgery,GA,Savannah,35200,41-5680950,facility,2021-05-07,True
+1443757584,Linda,Torres,Dermatology,NY,Rochester,61712,54-3457461,group,2018-06-22,True
+1157473384,Kimberly,Moore,Gastroenterology,PA,Philadelphia,24316,88-5014486,solo,2018-07-27,True
+1330165712,Kimberly,Hernandez,Family Medicine,NC,Raleigh,95575,70-9010256,solo,2021-03-22,True
+1401938026,Barbara,Williams,Gastroenterology,IL,Springfield,74930,33-5856449,solo,2018-02-07,True
+1991547887,David,Allen,Gastroenterology,PA,Pittsburgh,45761,34-2889899,group,2019-10-28,True
+1420549329,Betty,Ramirez,Ophthalmology,GA,Augusta,52982,21-7724865,solo,2020-01-27,True
+1753046374,Karen,Nguyen,Neurology,CA,Los Angeles,44282,93-7032283,solo,2018-09-12,True
+1742684145,Joseph,Anderson,Radiology,FL,Orlando,72676,29-8633275,facility,2022-03-11,True
+1878339187,Nancy,Jones,Psychiatry,OH,Cincinnati,24707,17-9480665,solo,2024-01-08,True
+1258713971,Steven,Lewis,Gastroenterology,CA,Los Angeles,69432,26-9610869,group,2023-02-15,True
+1087406403,John,Williams,Radiology,MI,Grand Rapids,55158,99-2069713,facility,2018-09-04,True
+1704622656,Matthew,Harris,Pediatrics,FL,Miami,99486,94-3231198,group,2019-05-01,True
+1868230047,Andrew,Ramirez,General Surgery,CA,Sacramento,40102,41-8728009,group,2019-09-28,True
+1310690331,Joshua,Williams,Internal Medicine,PA,Pittsburgh,88352,96-1816653,solo,2018-07-01,True
+1738302843,Paul,Lee,Ophthalmology,OH,Cincinnati,88370,96-6379867,solo,2021-05-21,True
+1836440892,Margaret,Scott,General Surgery,CA,Sacramento,16145,54-7394713,facility,2021-07-29,True
+1624628733,Elizabeth,Robinson,Dermatology,OH,Columbus,83713,62-7987842,facility,2023-12-11,True
+1634351751,Richard,Brown,Psychiatry,CA,San Diego,59436,96-1663497,solo,2020-02-10,True
+1837354033,Linda,Walker,Emergency Medicine,MI,Detroit,89220,36-7654381,solo,2024-03-11,True
+1467854458,Ashley,Robinson,Gastroenterology,IL,Chicago,71537,50-4407913,group,2021-07-05,True
+1093204899,Anthony,Jackson,Emergency Medicine,OH,Columbus,35715,52-4859072,group,2024-05-22,True
+1785477725,David,Wright,Cardiology,NY,Rochester,34123,79-1985360,facility,2018-05-19,True
+1006231203,Sandra,White,Psychiatry,FL,Miami,90980,91-9106820,group,2018-03-06,True
+1886008484,Steven,Ramirez,Family Medicine,TX,Dallas,24026,22-9797727,solo,2020-09-14,True
+1984546156,Paul,Thomas,Pediatrics,NY,Buffalo,49318,97-2352527,solo,2019-01-18,True
+1668700217,Margaret,Perez,Ophthalmology,OH,Cincinnati,22499,77-1713900,solo,2020-05-15,True
+1740148902,Charles,Johnson,Gastroenterology,MI,Detroit,86943,28-7682298,solo,2021-05-10,True
+1939685621,Daniel,Brown,Psychiatry,CA,Los Angeles,67290,39-2275374,group,2022-06-13,True
+1047735866,Emily,Harris,Cardiology,IL,Chicago,91083,47-5134741,solo,2018-12-03,True
+1262655110,Mark,White,Dermatology,PA,Pittsburgh,23399,26-2464604,solo,2022-11-01,True
+1888610158,Joshua,Hill,Internal Medicine,GA,Savannah,60493,11-5896386,group,2022-05-08,True
+1839826224,Sarah,Young,Dermatology,FL,Orlando,18292,31-8292657,group,2022-09-21,True
+1715437993,Michael,Rodriguez,Pediatrics,PA,Pittsburgh,10887,60-6573679,facility,2022-04-06,True
+1756924593,Charles,Lopez,Pediatrics,IL,Springfield,51830,47-9237735,facility,2020-09-19,True
+1646519398,Kimberly,Johnson,Cardiology,IL,Naperville,70505,36-8356053,group,2018-10-11,True
+1724342661,Joshua,Walker,Pediatrics,OH,Cincinnati,62534,78-9499549,group,2024-02-05,True
+1589113529,Paul,Sanchez,Family Medicine,TX,Austin,66420,23-1176962,solo,2020-11-25,True
+1888993756,Emily,Allen,Pediatrics,NY,Buffalo,55215,13-9099554,solo,2021-04-25,True
+1112545738,Daniel,Walker,Pediatrics,OH,Columbus,67431,99-8590804,group,2018-10-03,True
+1010512382,William,Perez,Psychiatry,PA,Harrisburg,65885,69-4889890,group,2020-01-26,True
+1660937966,Susan,Wilson,Family Medicine,CA,San Diego,18200,83-2707116,facility,2020-02-05,True
+1537147859,Donna,Sanchez,Oncology,IL,Naperville,24972,54-6905327,group,2019-12-08,True
+1991251341,Nancy,Martinez,Cardiology,PA,Harrisburg,60916,63-3313029,facility,2022-04-21,True
+1278282742,Charles,Lewis,Cardiology,OH,Cincinnati,17026,55-1160783,group,2019-07-14,True
+1688767677,Jennifer,Torres,Cardiology,NY,New York,38905,47-1548532,group,2020-07-09,True
+1427978819,Sarah,Wright,Internal Medicine,NC,Raleigh,81046,15-8404902,facility,2020-06-14,True
+1134074517,Linda,Thomas,Ophthalmology,OH,Columbus,87060,98-6882609,facility,2022-10-20,True
+1923309584,Andrew,Hernandez,Radiology,CA,San Diego,48356,47-5485272,facility,2019-01-26,True
+1604223253,Betty,Young,Urology,CA,San Francisco,85684,90-5508325,group,2022-03-17,True
+1116845775,James,Garcia,Radiology,GA,Augusta,70089,91-7009980,solo,2023-12-30,True
+1363745458,David,Torres,Radiology,OH,Cleveland,55054,97-1812172,solo,2019-02-12,True
+1012770632,Karen,Hernandez,Gastroenterology,GA,Savannah,22234,93-7047102,group,2018-12-04,True
+1206436110,Donald,Jones,Orthopedics,IL,Chicago,87814,38-9714828,group,2018-02-08,True
+1516271361,Michael,Miller,Emergency Medicine,TX,Austin,58177,48-3300647,group,2019-06-30,True
+1189092753,Elizabeth,Clark,General Surgery,CA,Sacramento,38474,21-2685524,solo,2019-05-20,True
+1656523413,Joshua,Hill,Psychiatry,MI,Ann Arbor,89638,46-1450038,group,2020-04-21,True
+1983640376,Jessica,Young,Internal Medicine,NC,Durham,87847,19-9863176,solo,2022-01-19,True
+1269658271,Emily,Jones,Family Medicine,IL,Chicago,44365,37-1668183,solo,2022-06-19,True
+1486661889,Sarah,Garcia,Cardiology,NC,Raleigh,20357,75-4409088,solo,2024-01-07,True
+1691463031,Margaret,Davis,Gastroenterology,IL,Springfield,90254,87-1923227,group,2019-12-21,True
+1020275884,Nancy,Rodriguez,Cardiology,FL,Tampa,25473,13-6620552,group,2021-01-19,True
+1149177850,Paul,Hernandez,Pediatrics,NC,Raleigh,30618,42-2726457,facility,2019-04-18,True
+1800030756,Elizabeth,Lopez,Gastroenterology,NY,New York,82465,93-8035849,solo,2021-08-11,True
+1654195180,Joseph,King,Cardiology,NY,New York,62550,18-8802985,group,2021-06-26,True
+1187053494,Donna,Thomas,Emergency Medicine,IL,Springfield,58270,85-9277218,solo,2024-02-17,True
+1206038505,Matthew,Martin,Family Medicine,NY,New York,36895,77-4995789,group,2023-07-09,True
+1241038657,Jennifer,Nguyen,Emergency Medicine,TX,Houston,76247,27-7616116,solo,2024-05-14,True
+1623445655,Sarah,Anderson,Pediatrics,TX,Houston,36569,27-2828260,solo,2019-03-09,True
+1775618537,Sandra,Taylor,Dermatology,CA,Los Angeles,21851,30-6103880,facility,2018-06-15,True
+1521356804,Barbara,Johnson,Dermatology,NY,Rochester,69270,81-5191831,solo,2023-03-08,True
+1210032365,Jennifer,Nguyen,General Surgery,FL,Tampa,19828,12-2081661,solo,2022-12-22,True
+1151070296,Betty,Young,Ophthalmology,CA,Los Angeles,60165,97-8158234,solo,2021-12-20,True
+1244720999,Christopher,Young,Orthopedics,NY,Rochester,82179,71-2023059,solo,2021-02-19,True
+1263838065,Andrew,Young,Pediatrics,OH,Cleveland,84141,74-6395626,group,2021-01-12,True
+1059304078,Emily,Anderson,Neurology,CA,San Francisco,23124,41-5045872,group,2023-12-26,True
+1396522395,Daniel,Nguyen,Urology,TX,Houston,56095,82-3384080,facility,2020-02-11,True
+1842701039,Mary,King,Orthopedics,GA,Savannah,10089,52-4380011,solo,2021-10-27,True
+1500292185,Nancy,Sanchez,Internal Medicine,CA,Los Angeles,54113,48-6412383,solo,2019-10-08,True
+1752895392,Karen,Jackson,Oncology,OH,Columbus,33292,10-7569981,facility,2018-05-13,True
+1959391725,John,Thomas,Emergency Medicine,CA,San Diego,51879,31-2488575,group,2023-01-04,True
+1433154100,Mark,Clark,Oncology,TX,Dallas,64266,73-7353742,group,2024-02-15,True
+1179327104,Charles,Taylor,Family Medicine,OH,Columbus,19725,53-3853891,group,2019-10-22,True

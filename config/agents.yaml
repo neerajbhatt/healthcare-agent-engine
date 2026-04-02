@@ -1,0 +1,93 @@
+# Agent definitions and orchestration configuration
+
+agents:
+  domain:
+    claims:
+      name: "Claims Intelligence Agent"
+      description: "Detects unusual billing patterns, upcoding, unbundling, duplicates"
+      wave: 1
+      timeout: 60
+      max_retries: 2
+      data_domains:
+        - claims_professional
+        - claims_institutional
+        - claims_pharmacy
+
+    provider:
+      name: "Provider Behavior Agent"
+      description: "Profiles providers against peer groups, flags statistical outliers"
+      wave: 1
+      timeout: 60
+      max_retries: 2
+      data_domains:
+        - providers
+        - provider_specialties
+        - provider_affiliations
+
+    member:
+      name: "Member Risk & Utilization Agent"
+      description: "Assesses member utilization patterns, detects doctor-shopping"
+      wave: 1
+      timeout: 60
+      max_retries: 2
+      data_domains:
+        - members
+        - member_enrollment
+        - member_utilization
+
+    eligibility:
+      name: "Eligibility & Coverage Agent"
+      description: "Validates coverage integrity, detects eligibility anomalies"
+      wave: 1
+      timeout: 60
+      max_retries: 2
+      data_domains:
+        - eligibility
+        - coverage_periods
+        - cob_records
+
+    temporal:
+      name: "Temporal Analysis Agent"
+      description: "Detects time-based anomalies across all domains"
+      wave: 2
+      timeout: 45
+      max_retries: 2
+      data_domains:
+        - claims_professional
+        - claims_institutional
+
+  cross_domain:
+    fraud_synthesis:
+      name: "Fraud Pattern Synthesis Agent"
+      description: "Correlates multi-domain signals into fraud risk scores"
+      wave: 3
+      timeout: 90
+      requires: [claims, provider, member]
+
+    network:
+      name: "Network Analysis Agent"
+      description: "Maps entity relationships, detects hidden connections"
+      wave: 3
+      timeout: 90
+      requires: [provider, member]
+
+    cost_impact:
+      name: "Cost Impact Agent"
+      description: "Quantifies financial impact and prioritizes findings"
+      wave: 3
+      timeout: 60
+      requires: [claims, provider]
+
+  utility:
+    report:
+      name: "Report Compiler Agent"
+      description: "Synthesizes all findings into investigation report"
+      wave: 4
+      timeout: 120
+
+orchestration:
+  max_hypotheses: 5
+  confidence_threshold: 0.6
+  escalation_threshold: 0.75
+  max_follow_ups: 3
+  parallelism: true
