@@ -29,3 +29,6 @@ httpx==0.28.1
 
 # YAML config
 pyyaml==6.0.2
+
+# PDF generation
+reportlab==4.1.0

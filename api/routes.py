@@ -6,6 +6,7 @@ import asyncio
 from typing import Any
 
 from fastapi import APIRouter, HTTPException, BackgroundTasks
+from fastapi.responses import Response
 
 from api.schemas import (
     InvestigateRequest,
@@ -16,6 +17,7 @@ from api.schemas import (
 )
 from orchestrator.engine import engine
 from orchestrator.dispatcher import AGENT_REGISTRY
+from utils.pdf_report import generate_pdf
 
 router = APIRouter(prefix="/api")
 
@@ -69,6 +71,25 @@ async def list_investigations(limit: int = 20):
     """List recent investigations."""
     items = engine.list_investigations(limit=limit)
     return [InvestigationListItem(**item) for item in items]
+
+
+@router.get("/investigations/{investigation_id}/report/pdf")
+async def download_pdf_report(investigation_id: str):
+    """Download investigation report as PDF."""
+    status = engine.get_investigation(investigation_id)
+    if status is None:
+        raise HTTPException(status_code=404, detail="Investigation not found")
+    if status.status != "complete":
+        raise HTTPException(status_code=400, detail="Investigation not yet complete")
+
+    pdf_bytes = generate_pdf(status.to_dict())
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={
+            "Content-Disposition": f'attachment; filename="investigation_{investigation_id}.pdf"',
+        },
+    )
 
 
 @router.get("/agents")

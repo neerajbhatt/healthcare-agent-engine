@@ -317,6 +317,28 @@
     font-family: 'JetBrains Mono', monospace;
   }
 
+  /* ── Download Button ── */
+  .btn-download {
+    background: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-download:hover {
+    border-color: var(--accent);
+    background: var(--accent-glow);
+    color: var(--accent);
+  }
+
   /* ── Spinner ── */
   .spinner {
     width: 16px; height: 16px;
@@ -382,6 +404,13 @@
     <!-- Stats Row -->
     <div class="stats-row" id="statsRow"></div>
 
+    <!-- Download -->
+    <div style="margin-bottom:20px;display:flex;justify-content:flex-end;">
+      <button class="btn-download" id="btnDownloadPdf" onclick="downloadPdf()" style="display:none;">
+        &#128196; Download PDF Report
+      </button>
+    </div>
+
     <!-- Executive Summary -->
     <div class="report-card" id="summaryCard">
       <h2><span class="icon" style="background:var(--purple-bg)">📋</span> Executive Summary</h2>
@@ -418,6 +447,7 @@ const AGENTS = {
 
 let timerInterval = null;
 let startTime = null;
+let currentInvestigationId = null;
 
 function setQuery(q) {
   document.getElementById('queryInput').value = q;
@@ -505,6 +535,7 @@ async function startInvestigation() {
         received = true;
         stopTimer();
         progressSection.classList.remove('active');
+        currentInvestigationId = msg.data.id || null;
         renderResults(msg.data);
         btn.disabled = false;
         btn.textContent = 'Investigate';
@@ -553,6 +584,7 @@ async function restInvestigate(query, btn) {
     const data = await resp.json();
 
     if (data.investigation_id) {
+      currentInvestigationId = data.investigation_id;
       const detail = await fetch(`/api/investigations/${data.investigation_id}`);
       const result = await detail.json();
       stopTimer();
@@ -572,6 +604,10 @@ async function restInvestigate(query, btn) {
 function renderResults(data) {
   const resultsSection = document.getElementById('resultsSection');
   resultsSection.classList.add('active');
+
+  // Show PDF download button
+  const dlBtn = document.getElementById('btnDownloadPdf');
+  if (currentInvestigationId) dlBtn.style.display = 'inline-flex';
 
   const report = data.report || {};
   const agentResults = data.agent_results || {};
@@ -699,6 +735,11 @@ function escHtml(s) {
   const div = document.createElement('div');
   div.textContent = s;
   return div.innerHTML;
+}
+
+function downloadPdf() {
+  if (!currentInvestigationId) return;
+  window.open(`/api/investigations/${currentInvestigationId}/report/pdf`, '_blank');
 }
 
 // Init
