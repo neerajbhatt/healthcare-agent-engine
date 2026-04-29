@@ -1,0 +1,121 @@
+# AI-Assisted Fraud Intelligence Platform — Executive Voiceover Script
+
+## Opening (0:00 – 0:20)
+
+“What you’re seeing is not just prompt engineering.
+
+This is the beginning of a structured AI-assisted product engineering workflow.
+
+In this demonstration, I am using the BMAD framework with Claude to design an enterprise-scale healthcare fraud intelligence platform.
+
+The objective is to move from ad-hoc AI interactions toward a repeatable, architecture-driven approach for building complex enterprise systems.”
+
+---
+
+## Why This Matters (0:20 – 0:50)
+
+“Healthcare fraud detection is fundamentally a relationship problem.
+
+Traditional rule-based systems often struggle to identify hidden behavioral patterns across providers, patients, procedures, claims, and billing relationships.
+
+This platform is being designed to support intelligent anomaly detection using graph relationships, behavioral signals, and explainable AI techniques.
+
+But equally important is the engineering process itself.
+
+The real innovation here is using AI-assisted workflows to accelerate product definition, architecture thinking, and system decomposition before development even begins.”
+
+---
+
+## BMAD Workflow Introduction (0:50 – 1:30)
+
+“Instead of jumping directly into implementation, I am using the BMAD workflow to create structured product artifacts.
+
+The framework guides the process through disciplined stages such as product brief generation, requirements analysis, architecture planning, and workflow decomposition.
+
+This creates consistency and traceability across the engineering lifecycle.
+
+For leadership teams, this is important because it reduces ambiguity early in the process.
+
+It also enables faster alignment between business objectives, architecture strategy, and engineering execution.”
+
+---
+
+## Product Vision (1:30 – 2:20)
+
+“The platform being defined here is a multi-agent fraud intelligence system.
+
+The vision is to allow investigators and analysts to interact with fraud patterns using natural language queries.
+
+Under the hood, specialized AI-driven workflows can eventually collaborate across multiple dimensions of fraud analysis.
+
+For example:
+
+provider behavior analysis,
+
+claims pattern correlation,
+
+patient-service relationship analysis,
+
+anomaly scoring,
+
+and explainability generation.
+
+The long-term goal is to create an intelligent investigation environment instead of a static reporting dashboard.”
+
+---
+
+## Why AI-Assisted Specification Matters (2:20 – 3:05)
+
+“At this stage, I am intentionally focusing on product specification before writing production code.
+
+This is important because many AI initiatives fail due to unclear problem definition and weak architectural planning.
+
+Using AI collaboratively during specification allows rapid iteration of requirements, architecture boundaries, workflows, and risk assumptions.
+
+For enterprise environments, this can significantly reduce downstream rework and improve architectural clarity before implementation investment begins.”
+
+---
+
+## Enterprise Architecture Perspective (3:05 – 4:00)
+
+“From an enterprise architecture perspective, this approach also creates opportunities for governance and standardization.
+
+Structured AI workflows can eventually become reusable engineering accelerators across teams.
+
+Instead of isolated prompt usage, organizations can establish repeatable AI-assisted delivery patterns for architecture definition, requirements refinement, compliance analysis, and system design.
+
+This becomes especially valuable in regulated domains like healthcare, where traceability, explainability, and governance are critical.”
+
+---
+
+## Future Vision (4:00 – 5:00)
+
+“The current focus is product definition.
+
+The next phases would include:
+
+graph-based relationship modeling,
+
+explainable anomaly detection,
+
+AI-assisted investigation workflows,
+
+and potentially autonomous orchestration between specialized fraud analysis components.
+
+Over time, this could evolve into a proactive fraud intelligence platform capable of surfacing hidden behavioral relationships that are difficult to detect using traditional approaches alone.
+
+The broader takeaway is that AI is not only transforming applications.
+
+It is also transforming how enterprise systems themselves are designed and engineered.”
+
+---
+
+## Closing (5:00 – End)
+
+“This demonstration represents an early-stage example of combining structured AI workflows with enterprise architecture thinking.
+
+The objective is not simply faster development.
+
+The objective is creating higher-quality system design through collaborative intelligence between architects, engineers, and AI-assisted workflows.
+
+For complex domains like healthcare fraud detection, that combination has the potential to significantly improve both engineering velocity and analytical capability.”
